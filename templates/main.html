@@ -195,12 +195,15 @@
     // if(!loader.loading){
     //   state = play;
     //wait for loader
+
+    gridSetup(enemyNumber);
+    enemyNumber++;
     if(enemyNumber > 6){
       enemyNumber = 2
     }
-    gridSetup(enemyNumber++);
     bindPlayerControls();
     bindRhythmKeys();
+
     state = play
 
     var enemyBarBase = new PIXI.Graphics();
