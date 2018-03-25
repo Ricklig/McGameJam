@@ -53,7 +53,7 @@
   var monsterMaxLife = 10;
   var monsterLife = monsterMaxLife; // NOTE Current monster life
   var currentCombo = 0;
-  var enemyNumber = enemyEnum['hendrix'];
+  var enemyNumber = 2;//enemyEnum['hendrix'];
 
   //Add the canvas that Pixi automatically created for you to the HTML document
   document.body.appendChild(app.view);
@@ -175,7 +175,7 @@
 
   function preGame(delta){
     MM = new musicManager(track,
-      beatArrays[0],
+      beatArrays[enemyNumber],
       222, //4*151,
       3.0
     );
