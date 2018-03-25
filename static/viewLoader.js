@@ -38,12 +38,12 @@ loadView = () => {
   .add("static/images/win_phase1.png")
   .add("static/images/instructions1.png")
   .add("static/images/game_over.png")
-  .add("static/images/welcome_page.png")
   .add("static/images/win.png")
   .add("static/qtrack.txt")
   .add("static/wtrack.txt")
   .add("static/etrack.txt")
   .add("static/rtrack.txt")
+  .add('title', "static/images/welcome_page.png")
   .load(callback)
 }
 
