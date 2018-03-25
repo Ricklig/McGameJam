@@ -53,7 +53,6 @@ function renderMap() {
         }else if(mapData[y][x].boss == 'prince'){
           tile = new PIXI.Sprite(treasureTexture);
         }else{
-          console.log("??")
           tile = new PIXI.Sprite(bossTexture);
         }
       }
