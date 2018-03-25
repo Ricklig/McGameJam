@@ -39,6 +39,16 @@ loadView = () => {
   .add("static/images/instructions1.png")
   .add("static/images/game_over.png")
   .add("static/images/welcome_page.png")
+  .add("static/qtrack.txt")
+  .add("static/wtrack.txt")
+  .add("static/etrack.txt")
+  .add("static/rtrack.txt")
+  .load(callback)
+}
+
+function callback(){
+  beatArrays[5] = [loader.resources["static/qtrack.txt"].data, loader.resources["static/wtrack.txt"].data, loader.resources["static/etrack.txt"].data, loader.resources["static/rtrack.txt"].data]
+  console.log('Smooth tracks ready.')
 }
 
 /*
