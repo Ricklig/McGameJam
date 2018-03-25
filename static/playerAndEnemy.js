@@ -81,3 +81,11 @@ function Enemy(base_damage, health, name){
     return this.health/this.max_health;
   }
 }
+
+//Example: 
+//kappa = new Enemy(10, 10000, "Kappa");
+
+//kappa.take_damage(100);
+//console.log("Health1: " + kappa.health);
+//kappa.reset_health();
+//console.log("Reset: " + kappa.health);
