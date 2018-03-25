@@ -2,7 +2,10 @@ setupMap = () => {
   passageTexture = PIXI.Texture.fromImage('static/images/placeholder_passage.png')
   wallTexture = PIXI.Texture.fromImage('static/images/placeholder_wall.png')
   playerTexture = PIXI.Texture.fromImage('static/images/placeholder_note.png')
-  bossTexture = PIXI.Texture.fromImage('static/images/placeholder_boss.png')
+  princeTexture = PIXI.Texture.fromImage('static/images/placeholder_boss2.png')
+  tartiniTexture = PIXI.Texture.fromImage('static/images/placeholder_boss3.png')
+  zappaTexture = PIXI.Texture.fromImage('static/images/placeholder_boss4.png')
+  hendrixTexture = PIXI.Texture.fromImage('static/images/placeholder_boss.png')
   treasureTexture = PIXI.Texture.fromImage('static/images/placeholder_treasure.png')
 }
 
@@ -41,14 +44,20 @@ function renderMap() {
   for (var y = 0; y < mapData.length; y++) {
     for (var x = 0; x < mapData[y].length; x++){
       // Assign graphic to terrain type
+      var tile;
       if(mapData[y][x].type == "path" ){
-          var tile = new PIXI.Sprite(passageTexture);
+          tile = new PIXI.Sprite(passageTexture);
       }
-      else if(mapData[y][x].type == "boss" ){
-          var tile = new PIXI.Sprite(bossTexture);
-      }
-      else if(mapData[y][x].type == "treasure" ){
-          var tile = new PIXI.Sprite(treasureTexture);
+      else if(mapData[y][x].type == "boss" || mapData[y][x].type == "treasure"){
+        if(mapData[y][x].boss == 'hendrix'){
+          tile = new PIXI.Sprite(hendrixTexture);
+        }else if(mapData[y][x].boss == 'zappa'){
+          tile = new PIXI.Sprite(zappaTexture);
+        }else if(mapData[y][x].boss == 'prince'){
+          tile = new PIXI.Sprite(princeTexture);
+        }else{
+          tile = new PIXI.Sprite(tartiniTexture);
+        }
       }
       else if(mapData[y][x].type == "start"){
           mapData[y][x].type = 'path';
@@ -62,10 +71,10 @@ function renderMap() {
             sprites.mapPlayer = playerSprite;
             app.stage.addChild(playerSprite);
           }
-          var tile = new PIXI.Sprite(passageTexture);
+          tile = new PIXI.Sprite(passageTexture);
       }
       else{
-          var tile = new PIXI.Sprite(wallTexture);
+          tile = new PIXI.Sprite(wallTexture);
       }
       // Set anchor to top left corner
       tile.anchor.set(0.0);

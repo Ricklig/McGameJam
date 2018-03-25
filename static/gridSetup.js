@@ -281,7 +281,6 @@ function gridSetup(number) {
   app.stage.addChild(sprites.player);
   app.stage.addChild(sprites.playerH);
 
-
   app.stage.addChild(character1);
   app.stage.addChild(character2);
   app.stage.addChild(character3);

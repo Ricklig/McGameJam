@@ -1,4 +1,6 @@
 from enum import Enum
+import random
+import math
 
 def generate_rooms(grid):
     for row, _ in enumerate(grid):
@@ -17,11 +19,13 @@ def generate_room(value):
         room['type'] = "path"
     if value == RoomType.BOSS.value:
         room['type'] = "boss"
+        room['boss'] = 'tartini'
         room['difficulty'] = 10
     if value == RoomType.START.value:
         room['type'] = "start"
     if value == RoomType.TREASURE.value:
         room['type'] = "treasure"
+        room['boss'] = ['hendrix','zappa','prince','tartinidevil'][math.floor(random.random()*4)]
     return room
 
 
