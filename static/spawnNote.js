@@ -20,17 +20,20 @@ class musicManager{
     // Fixed note speed?
     this.noteSpeed = noteSpeed;
     // Initial drop distance
-    this.dropDistance = +this.noteTexture.height - (app.stage.height - 50);
+    this.dropDistance = + this.noteTexture.height + (app.stage.height - 50);
+    this.trackPath = trackPath;
+    console.log(trackPath);
     // Is it really loaded????
     // Load a track
-    this.track = PIXI.sound.Sound.from({
-      url: trackPath, // 'static/music/Tartini1.midi',
-      autoPlay: false,
-      loop: true,
-      complete: function() {
-          console.log('Track over');
-      }
-    })
+
+    // this.track = PIXI.sound.Sound.from({
+    //   url: trackPath, // 'static/music/Tartini1.midi',
+    //   autoPlay: false,
+    //   loop: true,
+    //   complete: function() {
+    //       console.log('Track over');
+    //   }
+    // })
     // Parse sequence
     this.sequences = this.parseSequences(sequenceQWER);
     this.allNotes = [];
@@ -55,7 +58,6 @@ class musicManager{
     }
     this.allNotes = [];
     this.trackPlaying = false;
-    MM.track.pause();
     app.ticker.remove(this.f);
 
   }
@@ -111,7 +113,7 @@ class musicManager{
     this.clockTime = -this.fixedDelay;
     this.spawnProgress = this.clockTime;
     this.sequenceIndex = 0;
-    this.trackDelayTime = this.dropDistance / this.noteSpeed / 5.0;
+    this.trackDelayTime = 0.7 + this.dropDistance / this.noteSpeed / 15.0;
     this.trackPlaying = false;
   }
 
@@ -130,12 +132,20 @@ class musicManager{
     const spawnTimer = 60.0/this.bpm;
 
     // Start playing after the initial drop delay
-    if(!this.trackPlaying){
-      if (this.clockTime > this.trackDelayTime){
-        // Play a track
-        this.track.play();
-        this.trackPlaying = true;
-      }
+    // console.log([this.clockTime, this.spawnProgress, spawnTimer])
+    if (this.trackPlaying && this.clockTime <= this.trackDelayTime){
+      // PIXI.sound.pauseAll();
+      // this.trackPlaying = false;
+      // MM.track.pause();
+    }
+    else if (!this.trackPlaying && this.clockTime > this.trackDelayTime){
+      this.trackPlaying = true;
+      PIXI.sound.add(this.trackPath, this.trackPath);
+      PIXI.sound.play(this.trackPath);
+      // console.log('hi')
+      // this.trackPlaying = true;
+      // PIXI.sound.resumeAll();
+      // this.track.resume();
     }
 
     // Spawn cycle
