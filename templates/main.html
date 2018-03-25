@@ -253,7 +253,6 @@ function play(delta) {
     // Player win!
     else if (monsterLife <= 0){
       killMon();
-      mapData[playerLoc[0]][playerLoc[1]] = 1;
     }
     MM.terminate();
     unBindPlayerControls();
@@ -335,6 +334,7 @@ function killMon(){
     removeChildren();
     killswitch = 0;
     setup = true;
+    mapData[playerLoc[1]][playerLoc[0]].type = "path";
     state = overworldScreen;
   }
 }
