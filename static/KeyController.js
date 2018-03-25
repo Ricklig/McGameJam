@@ -153,7 +153,7 @@ function bindPlayerControls(){
     }
   };
   up.press = () => {
-    if(sprites.player.y == 700 ){
+    if(sprites.player.y == 100 ){
     } else {
       sprites.player.y -= 150;
     }
