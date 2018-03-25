@@ -25,7 +25,7 @@ def generate_room(value):
         room['type'] = "start"
     if value == RoomType.TREASURE.value:
         room['type'] = "treasure"
-        room['boss'] = ['hendrix','zappa','prince'][math.floor(random.random()*3)]
+        room['boss'] = ['hendrix','zappa','prince','tartinidevil'][math.floor(random.random()*4)]
     return room
 
 

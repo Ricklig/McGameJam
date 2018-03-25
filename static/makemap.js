@@ -2,7 +2,10 @@ setupMap = () => {
   passageTexture = PIXI.Texture.fromImage('static/images/placeholder_passage.png')
   wallTexture = PIXI.Texture.fromImage('static/images/placeholder_wall.png')
   playerTexture = PIXI.Texture.fromImage('static/images/placeholder_note.png')
-  bossTexture = PIXI.Texture.fromImage('static/images/placeholder_boss.png')
+  princeTexture = PIXI.Texture.fromImage('static/images/placeholder_boss2.png')
+  tartiniTexture = PIXI.Texture.fromImage('static/images/placeholder_boss3.png')
+  zappaTexture = PIXI.Texture.fromImage('static/images/placeholder_boss4.png')
+  hendrixTexture = PIXI.Texture.fromImage('static/images/placeholder_boss.png')
   treasureTexture = PIXI.Texture.fromImage('static/images/placeholder_treasure.png')
 }
 
@@ -47,13 +50,13 @@ function renderMap() {
       }
       else if(mapData[y][x].type == "boss" || mapData[y][x].type == "treasure"){
         if(mapData[y][x].boss == 'hendrix'){
-          tile = new PIXI.Sprite(treasureTexture);
+          tile = new PIXI.Sprite(hendrixTexture);
         }else if(mapData[y][x].boss == 'zappa'){
-          tile = new PIXI.Sprite(treasureTexture);
+          tile = new PIXI.Sprite(zappaTexture);
         }else if(mapData[y][x].boss == 'prince'){
-          tile = new PIXI.Sprite(treasureTexture);
+          tile = new PIXI.Sprite(princeTexture);
         }else{
-          tile = new PIXI.Sprite(bossTexture);
+          tile = new PIXI.Sprite(tartiniTexture);
         }
       }
       else if(mapData[y][x].type == "start"){

@@ -150,6 +150,8 @@
 
 
   function preGame(delta){
+    enemyNumber = enemyEnum[mapData[playerLoc[1]][playerLoc[0]].boss];
+
     var track="";
     switch (enemyNumber){
       case 0: //Intro, any monster
@@ -175,6 +177,7 @@
       break;
     }
 
+
     MM = new musicManager(track,
       beatArrays[enemyNumber],
       222, //4*151,
@@ -197,10 +200,6 @@
     //wait for loader
 
     gridSetup(enemyNumber);
-    enemyNumber++;
-    if(enemyNumber > 6){
-      enemyNumber = 2
-    }
     bindPlayerControls();
     bindRhythmKeys();
 
