@@ -58,8 +58,8 @@ class musicManager{
     }
     this.allNotes = [];
     this.trackPlaying = false;
+    PIXI.sound.stopAll();
     app.ticker.remove(this.f);
-
   }
 
   // Push note by lane
